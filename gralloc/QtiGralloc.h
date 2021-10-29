@@ -137,6 +137,7 @@ static const MetadataType MetadataType_RgbDataAddress = {VENDOR_QTI, QTI_RGB_DAT
 
 static const MetadataType MetadataType_ColorSpace = {VENDOR_QTI, QTI_COLORSPACE};
 static const MetadataType MetadataType_YuvPlaneInfo = {VENDOR_QTI, QTI_YUV_PLANE_INFO};
+static const MetadataType MetadataType_CRCBuffer = {VENDOR_QTI, QTI_CRC_BUFFER};
 static const MetadataType MetadataType_BufferPermission = {VENDOR_QTI, QTI_BUFFER_PERMISSION};
 static const MetadataType MetadataType_MemHandle = {VENDOR_QTI, QTI_MEM_HANDLE};
 
@@ -169,6 +170,7 @@ Error decodeUBWCStats(hidl_vec<uint8_t> &in, UBWCStats *out);
 Error encodeUBWCStats(UBWCStats *in, hidl_vec<uint8_t> *out);
 Error decodeCVPMetadata(hidl_vec<uint8_t> &in, CVPMetadata *out);
 Error encodeCVPMetadata(CVPMetadata &in, hidl_vec<uint8_t> *out);
+Error encodeCRCBufferDataRaw(void *in, hidl_vec<uint8_t> *out);
 Error decodeVideoHistogramMetadata(hidl_vec<uint8_t> &in, VideoHistogramMetadata *out);
 Error encodeVideoHistogramMetadata(VideoHistogramMetadata &in, hidl_vec<uint8_t> *out);
 Error decodeVideoTranscodeStatsMetadata(hidl_vec<uint8_t> &in, VideoTranscodeStatsMetadata *out);

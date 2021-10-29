@@ -79,6 +79,7 @@
 #define QTI_VIDEO_TRANSCODE_STATS 10030
 // Early Notify line count
 #define QTI_EARLYNOTIFY_LINECOUNT 10031
+#define QTI_CRC_BUFFER 10032
 // Used to indicate to framework that internal definitions are used instead
 #define COMPRESSION_QTI_UBWC 20001
 #define INTERLACED_QTI 20002
@@ -87,6 +88,9 @@
 #define PLANE_COMPONENT_TYPE_META 20004
 
 #define MAX_NAME_LEN 256
+
+#define CRC_BUFFER_SIZE 64
+#define CRC_BUFFER_SIZE_IN_BYTES (CRC_BUFFER_SIZE * sizeof(uint32_t))
 
 // GRAPHICS_METADATA
 #define GRAPHICS_METADATA_SIZE 4096

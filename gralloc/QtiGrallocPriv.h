@@ -137,6 +137,7 @@ struct MetaData_t {
   bool isVendorMetadataSet[METADATA_SET_SIZE];
   uint64_t reservedSize;
   VideoTimestampInfo videoTsInfo;
+  uint32_t crcBuffer[CRC_BUFFER_SIZE];
   BufferPermission bufferPerm[BUFFER_CLIENT_MAX];
   int64_t memHandle;
 

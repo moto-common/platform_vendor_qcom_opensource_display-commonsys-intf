@@ -176,7 +176,9 @@ struct private_handle_t : public native_handle_t {
   uint64_t base;
   uint64_t base_metadata;
   uint64_t gpuaddr;
+#ifdef GRALLOC_HANDLE_HAS_RESERVED_SIZE
   unsigned int reserved_size;
+#endif
 #ifdef GRALLOC_HANDLE_HAS_CUSTOM_CONTENT_MD_RESERVED_SIZE
   unsigned int custom_content_md_reserved_size;
 #endif
@@ -207,8 +209,10 @@ struct private_handle_t : public native_handle_t {
         offset_metadata(0),
         base(0),
         base_metadata(0),
-        gpuaddr(0),
-        reserved_size(0)
+        gpuaddr(0)
+#ifdef GRALLOC_HANDLE_HAS_RESERVED_SIZE
+        ,reserved_size(0)
+#endif
 #ifdef GRALLOC_HANDLE_HAS_CUSTOM_CONTENT_MD_RESERVED_SIZE
         ,custom_content_md_reserved_size(0)
 #endif
@@ -246,10 +250,9 @@ struct private_handle_t : public native_handle_t {
   static void Dump(const private_handle_t *hnd) {
     ALOGD("handle id:%" PRIu64
           " wxh:%dx%d uwxuh:%dx%d size: %d fd:%d fd_meta:%d flags:0x%x "
-          "usage:0x%" PRIx64 "  format:0x%x layer_count: %d reserved_size = %d",
+          "usage:0x%" PRIx64 "  format:0x%x layer_count: %d",
           hnd->id, hnd->width, hnd->height, hnd->unaligned_width, hnd->unaligned_height, hnd->size,
-          hnd->fd, hnd->fd_metadata, hnd->flags, hnd->usage, hnd->format, hnd->layer_count,
-          hnd->reserved_size);
+          hnd->fd, hnd->fd_metadata, hnd->flags, hnd->usage, hnd->format, hnd->layer_count);
   }
 };
 #pragma pack(pop)

@@ -74,7 +74,7 @@
 
 #define ROUND_UP_PAGESIZE(x) roundUpToPageSize(x)
 inline size_t roundUpToPageSize(size_t x) {
-  return (x + (getpagesize() - 1)) & ~(getpagesize() - 1);
+  return (x + static_cast<unsigned int>(getpagesize() - 1)) & ~(static_cast<unsigned int>(getpagesize() - 1));
 }
 
 /* Legacy gralloc1 definitions */
